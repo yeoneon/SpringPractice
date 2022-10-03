@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Getter
 @Entity
 public class Posts {
@@ -24,4 +22,16 @@ public class Posts {
     private String content;
 
     private String author;
+
+    @Builder
+    public Posts(Long id, String title, String content, String author) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.author = author;
+    }
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }
